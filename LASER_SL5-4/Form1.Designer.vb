@@ -240,7 +240,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1902, 1153)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1028, 749)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TableLayoutPanel2
@@ -281,7 +281,7 @@ Partial Class Form1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(380, 1153)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(204, 749)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'IconButton6
@@ -290,16 +290,17 @@ Partial Class Form1
         Me.IconButton6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton6.FlatAppearance.BorderSize = 0
         Me.IconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton6.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton6.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton6.ForeColor = System.Drawing.Color.White
         Me.IconButton6.IconChar = FontAwesome.Sharp.IconChar.PencilAlt
         Me.IconButton6.IconColor = System.Drawing.Color.White
         Me.IconButton6.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton6.IconSize = 35
-        Me.IconButton6.Location = New System.Drawing.Point(3, 463)
+        Me.IconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton6.Location = New System.Drawing.Point(3, 299)
         Me.IconButton6.Name = "IconButton6"
         Me.IconButton6.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton6.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton6.Size = New System.Drawing.Size(198, 68)
         Me.IconButton6.TabIndex = 6
         Me.IconButton6.Text = "EDITING RICETTA"
         Me.IconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -312,16 +313,17 @@ Partial Class Form1
         Me.IconButton5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton5.FlatAppearance.BorderSize = 0
         Me.IconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton5.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton5.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton5.ForeColor = System.Drawing.Color.White
         Me.IconButton5.IconChar = FontAwesome.Sharp.IconChar.Gear
         Me.IconButton5.IconColor = System.Drawing.Color.White
         Me.IconButton5.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton5.IconSize = 35
-        Me.IconButton5.Location = New System.Drawing.Point(3, 808)
+        Me.IconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton5.Location = New System.Drawing.Point(3, 521)
         Me.IconButton5.Name = "IconButton5"
         Me.IconButton5.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton5.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton5.Size = New System.Drawing.Size(198, 68)
         Me.IconButton5.TabIndex = 5
         Me.IconButton5.Text = "STOP LASER"
         Me.IconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -335,16 +337,17 @@ Partial Class Form1
         Me.IconButton4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton4.FlatAppearance.BorderSize = 0
         Me.IconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton4.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton4.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton4.ForeColor = System.Drawing.Color.White
         Me.IconButton4.IconChar = FontAwesome.Sharp.IconChar.Gear
         Me.IconButton4.IconColor = System.Drawing.Color.White
         Me.IconButton4.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton4.IconSize = 35
-        Me.IconButton4.Location = New System.Drawing.Point(3, 578)
+        Me.IconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton4.Location = New System.Drawing.Point(3, 373)
         Me.IconButton4.Name = "IconButton4"
         Me.IconButton4.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton4.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton4.Size = New System.Drawing.Size(198, 68)
         Me.IconButton4.TabIndex = 4
         Me.IconButton4.Text = "RESET SEGNALI"
         Me.IconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -357,16 +360,17 @@ Partial Class Form1
         Me.IconButton3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton3.FlatAppearance.BorderSize = 0
         Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton3.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton3.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton3.ForeColor = System.Drawing.Color.White
         Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Gear
         Me.IconButton3.IconColor = System.Drawing.Color.White
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton3.IconSize = 35
-        Me.IconButton3.Location = New System.Drawing.Point(3, 693)
+        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton3.Location = New System.Drawing.Point(3, 447)
         Me.IconButton3.Name = "IconButton3"
         Me.IconButton3.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton3.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton3.Size = New System.Drawing.Size(198, 68)
         Me.IconButton3.TabIndex = 3
         Me.IconButton3.Text = "LOG"
         Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -379,16 +383,17 @@ Partial Class Form1
         Me.IconButton2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton2.FlatAppearance.BorderSize = 0
         Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton2.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton2.ForeColor = System.Drawing.Color.White
         Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Microchip
         Me.IconButton2.IconColor = System.Drawing.Color.White
         Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton2.IconSize = 35
-        Me.IconButton2.Location = New System.Drawing.Point(3, 348)
+        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton2.Location = New System.Drawing.Point(3, 225)
         Me.IconButton2.Name = "IconButton2"
         Me.IconButton2.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton2.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton2.Size = New System.Drawing.Size(198, 68)
         Me.IconButton2.TabIndex = 2
         Me.IconButton2.Text = "PLC"
         Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -402,7 +407,7 @@ Partial Class Form1
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(380, 115)
+        Me.PictureBox1.Size = New System.Drawing.Size(204, 74)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -413,16 +418,17 @@ Partial Class Form1
         Me.IconButton1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.IconButton1.FlatAppearance.BorderSize = 0
         Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton1.ForeColor = System.Drawing.Color.White
         Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Play
         Me.IconButton1.IconColor = System.Drawing.Color.White
         Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton1.IconSize = 35
-        Me.IconButton1.Location = New System.Drawing.Point(3, 233)
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton1.Location = New System.Drawing.Point(3, 151)
         Me.IconButton1.Name = "IconButton1"
         Me.IconButton1.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.IconButton1.Size = New System.Drawing.Size(374, 109)
+        Me.IconButton1.Size = New System.Drawing.Size(198, 68)
         Me.IconButton1.TabIndex = 1
         Me.IconButton1.Text = "LASER"
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -445,13 +451,13 @@ Partial Class Form1
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(380, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(204, 0)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel1.SetRowSpan(Me.TableLayoutPanel3, 2)
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1522, 114)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(824, 74)
         Me.TableLayoutPanel3.TabIndex = 1
         '
         'Label4
@@ -463,7 +469,7 @@ Partial Class Form1
         Me.Label4.ForeColor = System.Drawing.SystemColors.Highlight
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(670, 114)
+        Me.Label4.Size = New System.Drawing.Size(358, 74)
         Me.Label4.TabIndex = 0
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -473,11 +479,11 @@ Partial Class Form1
         Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.TableLayoutPanel1.SetColumnSpan(Me.Panel1, 16)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(380, 171)
+        Me.Panel1.Location = New System.Drawing.Point(204, 111)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
         Me.TableLayoutPanel1.SetRowSpan(Me.Panel1, 17)
-        Me.Panel1.Size = New System.Drawing.Size(1522, 982)
+        Me.Panel1.Size = New System.Drawing.Size(824, 638)
         Me.Panel1.TabIndex = 2
         '
         'TableLayoutPanel4
@@ -489,7 +495,7 @@ Partial Class Form1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.Panel2, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(380, 114)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(204, 74)
         Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 4
@@ -497,7 +503,7 @@ Partial Class Form1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1522, 57)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(824, 37)
         Me.TableLayoutPanel4.TabIndex = 3
         '
         'Panel2
@@ -507,14 +513,14 @@ Partial Class Form1
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1522, 14)
+        Me.Panel2.Size = New System.Drawing.Size(824, 9)
         Me.Panel2.TabIndex = 0
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 17.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1902, 1153)
+        Me.ClientSize = New System.Drawing.Size(1028, 749)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

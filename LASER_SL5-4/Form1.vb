@@ -16,6 +16,7 @@ Public Class Form1
     Public Event Show_My_Message(ByVal message As Graphics_update)
     Public WithEvents cycle_1 As Main_Cycle
     Public opc1 As OPCClass
+    Private opcConnectThread As Thread
     'Public WithEvents Logs As Log_File_Thread
     'Public WithEvents Mqtt_comm As Mqtt_class
     'Public mqtt_client_struct As Mqtt_client_id_struct
@@ -43,27 +44,30 @@ Public Class Form1
 
 
 
-        opc1 = New OPCClass(Station_settings.DeviceIp, Station_settings.DevicePort)
-        opc1.Subscribe()
-        com_ch1.Plc_connected = True
-
-
-        cycle_1 = New Main_Cycle()
-        cycle_1.main_loop = New Thread(AddressOf cycle_1.main_thread)
-        cycle_1.main_loop.Start()
-
         'inizializzazione thread dei log
         Logs = New Log_File_Thread()
         Logs.Log_loop = New Thread(AddressOf Logs.Log_thread)
+        Logs.Log_loop.IsBackground = True
         Logs.Log_loop.Start()
+
+        StartOpcConnection()
+
+        cycle_1 = New Main_Cycle()
+        cycle_1.main_loop = New Thread(AddressOf cycle_1.main_thread)
+        cycle_1.main_loop.IsBackground = True
+        cycle_1.main_loop.Start()
 
 
         form_selected = "LASER"
     End Sub
 
     Private Sub Form1_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-        'opc1.OPC_Disconnect()
-        End
+        If opc1 IsNot Nothing Then
+            opc1.OPC_Disconnect()
+        End If
+        If Logs IsNot Nothing Then
+            Logs.Log_exit_thread = True
+        End If
     End Sub
 
 
@@ -109,7 +113,7 @@ Public Class Form1
 
     Private Sub Open_Child_Form(child_form As Form)
         Me.Invoke(Sub()
-                      If form_selected = "LASER" Then
+                      If form_selected = "LASER" AndAlso IsNothing(current_child_form) = False Then
                           current_child_form.Visible = False
                           hidden_form = current_child_form
                       ElseIf form_to_open = "LASER" And IsNothing(hidden_form) = False Then
@@ -119,8 +123,6 @@ Public Class Form1
                           form_to_open = ""
                           hidden_form = Nothing
                       ElseIf IsNothing(current_child_form) = False Then
-
-                          current_child_form.Close()
 
                           current_child_form.Close()
                       End If
@@ -141,61 +143,35 @@ Public Class Form1
         If InsertLaserSerial(las1.recipe, las1.batch, las1.SN, las1.TrackID) = False Then
             MsgBox("ERRORE INSERIMENTO DATI IN TABELLA LASER SERIAL")
         End If
-        Dim resWrite As Boolean = False
         If e.err_to_send = "NO ERROR" Then
-            opc1.OPC_Write(NODO_RISULTATO_LASER, True)
-            opc1.OPC_Write(NODO_LASERATO_LASER, e.dm_text)
-            opc1.OPC_Write(NODO_FINE_LASER, True)
+            SafeOpcWrite(NODO_RISULTATO_LASER, True, "ESITO BUONO")
+            SafeOpcWrite(NODO_LASERATO_LASER, e.dm_text, "STRINGA MARCATA")
+            SafeOpcWrite(NODO_FINE_LASER, True, "FINE LASERATURA OK")
             Logs.Add_log_element("COMANDO INVIATO", "FINE LASERATURA OK")
-            While (1)
-                Thread.Sleep(100)
-
-                Dim n_try = 0
-                While resWrite = False
-                    Thread.Sleep(100)
-                    If n_try <= MAX_TRY_WRITE_OPC Then
-                        resWrite = opc1.OPC_Write(NODO_RISULTATO_LASER, False)
-                        Logs.Add_log_element("COMANDO INVIATO", "RESET RISULTATO LASER OK")
-                        n_try += 1
-                    Else
-                        n_try = 0
-                        Logs.Add_log_element("COMANDO NON INVIATO", "IMPOSSIBILE CONTATTATARE SERVER OPCUA ESITO BUONO")
-                        Exit While
-                    End If
-                End While
-
-                resWrite = False
-                n_try = 0
-                While resWrite = False
-                    Thread.Sleep(100)
-                    If n_try <= MAX_TRY_WRITE_OPC Then
-                        resWrite = opc1.OPC_Write(NODO_FINE_LASER, False)
-                        Logs.Add_log_element("COMANDO INVIATO", "RESET FINITO LASER OK")
-                        n_try += 1
-                    Else
-                        n_try = 0
-                        Logs.Add_log_element("COMANDO NON INVIATO", "IMPOSSIBILE CONTATTATARE SERVER OPCUA RESET FINE LASER")
-                        Exit While
-                    End If
-                End While
-                Exit While
-            End While
+            Thread.Sleep(100)
+            SafeOpcWrite(NODO_RISULTATO_LASER, False, "RESET RISULTATO LASER OK")
+            SafeOpcWrite(NODO_FINE_LASER, False, "RESET FINITO LASER OK")
 
         Else
             Logs.Add_log_element("COMANDO INVIATO", "FINE LASERATURA KO")
-            opc1.OPC_Write(NODO_RISULTATO_LASER, False)
-            opc1.OPC_Write(NODO_LASERATO_LASER, e.dm_text)
-            opc1.OPC_Write(NODO_FINE_LASER, True)
-            While (1)
+            SafeOpcWrite(NODO_RISULTATO_LASER, False, "ESITO KO")
+            SafeOpcWrite(NODO_LASERATO_LASER, e.dm_text, "STRINGA MARCATA KO")
+            SafeOpcWrite(NODO_FINE_LASER, True, "FINE LASERATURA KO")
+            For waitStartReset As Integer = 0 To 100
                 Thread.Sleep(100)
-                If opc1.OPC_Read(NODO_START_LASER).ToString = "False" Then
-                    opc1.OPC_Write(NODO_RISULTATO_LASER, False)
-                    Logs.Add_log_element("COMANDO INVIATO", "RESET RISULTATO LASER KO")
-                    opc1.OPC_Write(NODO_FINE_LASER, False)
-                    Logs.Add_log_element("COMANDO INVIATO", "RESET FINITO LASER KO")
-                    Exit While
+                Dim startLaser As String = ""
+                If SafeOpcRead(NODO_START_LASER, startLaser) = False Then
+                    Exit For
                 End If
-            End While
+
+                If startLaser = "False" Then
+                    SafeOpcWrite(NODO_RISULTATO_LASER, False, "RESET RISULTATO LASER KO")
+                    Logs.Add_log_element("COMANDO INVIATO", "RESET RISULTATO LASER KO")
+                    SafeOpcWrite(NODO_FINE_LASER, False, "RESET FINITO LASER KO")
+                    Logs.Add_log_element("COMANDO INVIATO", "RESET FINITO LASER KO")
+                    Exit For
+                End If
+            Next
             'Open_Child_Form(New Error_dlg())
             'form_selected = "ERROR"
         End If
@@ -265,8 +241,87 @@ Public Class Form1
     End Sub
 
     Private Sub IconButton4_Click(sender As Object, e As EventArgs) Handles IconButton4.Click
-        opc1.OPC_Write(NODO_FINE_LASER, False)
-        opc1.OPC_Write(NODO_RISULTATO_LASER, False)
+        SafeOpcWrite(NODO_FINE_LASER, False, "RESET MANUALE FINE LASER")
+        SafeOpcWrite(NODO_RISULTATO_LASER, False, "RESET MANUALE RISULTATO LASER")
     End Sub
+
+    Private Sub StartOpcConnection()
+        opcConnectThread = New Thread(
+            Sub()
+                Try
+                    opc1 = New OPCClass(Station_settings.DeviceIp, Station_settings.DevicePort)
+                    If opc1.IsConnected Then
+                        opc1.Subscribe()
+                        com_ch1.Plc_connected = True
+                        Logs.Add_log_element("OPC", "CONNESSO")
+                    Else
+                        com_ch1.Plc_connected = False
+                        Logs.Add_log_element("OPC", "NON CONNESSO")
+                    End If
+                Catch ex As Exception
+                    com_ch1.Plc_connected = False
+                    If Logs IsNot Nothing Then
+                        Logs.Add_log_element("ERRORE OPC", ex.Message)
+                    End If
+                End Try
+            End Sub)
+        opcConnectThread.IsBackground = True
+        opcConnectThread.Start()
+    End Sub
+
+    Private Function SafeOpcWrite(node As String, value As Boolean, logText As String) As Boolean
+        If opc1 Is Nothing OrElse opc1.IsConnected = False Then
+            Logs.Add_log_element("COMANDO NON INVIATO", "OPCUA NON CONNESSO: " & logText)
+            Return False
+        End If
+
+        For nTry As Integer = 0 To MAX_TRY_WRITE_OPC
+            If opc1.OPC_Write(node, value) Then
+                Logs.Add_log_element("COMANDO INVIATO", logText)
+                Return True
+            End If
+            Thread.Sleep(100)
+        Next
+
+        Logs.Add_log_element("COMANDO NON INVIATO", "IMPOSSIBILE CONTATTARE SERVER OPCUA: " & logText)
+        Return False
+    End Function
+
+    Private Function SafeOpcWrite(node As String, value As String, logText As String) As Boolean
+        If opc1 Is Nothing OrElse opc1.IsConnected = False Then
+            Logs.Add_log_element("COMANDO NON INVIATO", "OPCUA NON CONNESSO: " & logText)
+            Return False
+        End If
+
+        For nTry As Integer = 0 To MAX_TRY_WRITE_OPC
+            If opc1.OPC_Write(node, value) Then
+                Logs.Add_log_element("COMANDO INVIATO", logText)
+                Return True
+            End If
+            Thread.Sleep(100)
+        Next
+
+        Logs.Add_log_element("COMANDO NON INVIATO", "IMPOSSIBILE CONTATTARE SERVER OPCUA: " & logText)
+        Return False
+    End Function
+
+    Private Function SafeOpcRead(node As String, ByRef value As String) As Boolean
+        If opc1 Is Nothing OrElse opc1.IsConnected = False Then
+            Logs.Add_log_element("LETTURA OPC NON ESEGUITA", "OPCUA NON CONNESSO")
+            value = ""
+            Return False
+        End If
+
+        For nTry As Integer = 0 To MAX_TRY_WRITE_OPC
+            If opc1.OPC_Read_String(node, value) Then
+                Return True
+            End If
+            Thread.Sleep(100)
+        Next
+
+        Logs.Add_log_element("LETTURA OPC NON ESEGUITA", "IMPOSSIBILE CONTATTARE SERVER OPCUA")
+        value = ""
+        Return False
+    End Function
 
 End Class

@@ -57,12 +57,12 @@ Partial Class Plc_dlg
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox1, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 5, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBox1, 1, 11)
+        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 10, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.Controls.Add(Me.ComboBox1, 1, 11)
         Me.TableLayoutPanel1.RowCount = 15
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
@@ -170,14 +170,14 @@ Partial Class Plc_dlg
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label3, 3)
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label3, 4)
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(42, 216)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.TableLayoutPanel1.SetRowSpan(Me.Label3, 2)
-        Me.Label3.Size = New System.Drawing.Size(116, 48)
+        Me.Label3.Size = New System.Drawing.Size(156, 48)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "COM TYPE"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -193,45 +193,48 @@ Partial Class Plc_dlg
         Me.TableLayoutPanel1.SetRowSpan(Me.TextBox2, 2)
         Me.TextBox2.Size = New System.Drawing.Size(116, 40)
         Me.TextBox2.TabIndex = 3
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label2, 3)
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label2, 4)
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(42, 120)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.TableLayoutPanel1.SetRowSpan(Me.Label2, 2)
-        Me.Label2.Size = New System.Drawing.Size(116, 48)
+        Me.Label2.Size = New System.Drawing.Size(156, 48)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "PORTA PLC"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TextBox1
         '
-        Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox1, 3)
+        Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox1, 6)
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(42, 74)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Name = "TextBox1"
         Me.TableLayoutPanel1.SetRowSpan(Me.TextBox1, 2)
-        Me.TextBox1.Size = New System.Drawing.Size(116, 40)
+        Me.TextBox1.Size = New System.Drawing.Size(236, 37)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = "___.___.___.___"
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 3)
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 4)
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(42, 24)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
-        Me.Label1.Size = New System.Drawing.Size(116, 48)
+        Me.Label1.Size = New System.Drawing.Size(156, 48)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "INDIRIZZO PLC"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -242,7 +245,7 @@ Partial Class Plc_dlg
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Button1.Location = New System.Drawing.Point(202, 50)
+        Me.Button1.Location = New System.Drawing.Point(402, 50)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.TableLayoutPanel1.SetRowSpan(Me.Button1, 2)

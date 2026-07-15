@@ -82,8 +82,9 @@ Partial Class Recipe_edit_dlg
 		Me.Label27 = New System.Windows.Forms.Label()
 		Me.NumericUpDown19 = New System.Windows.Forms.NumericUpDown()
 		Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-		Me.Button2 = New System.Windows.Forms.Button()
+		Me.cmd_SaveParams = New System.Windows.Forms.Button()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.cmd_RefreshGraph = New System.Windows.Forms.Button()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.TableLayoutPanel2.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -113,11 +114,11 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel2.SetColumnSpan(Me.Cancel_Button, 4)
 		Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
 		Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Cancel_Button.Location = New System.Drawing.Point(1672, 1031)
+		Me.Cancel_Button.Location = New System.Drawing.Point(880, 657)
 		Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(0)
 		Me.Cancel_Button.Name = "Cancel_Button"
 		Me.TableLayoutPanel2.SetRowSpan(Me.Cancel_Button, 2)
-		Me.Cancel_Button.Size = New System.Drawing.Size(152, 44)
+		Me.Cancel_Button.Size = New System.Drawing.Size(80, 28)
 		Me.Cancel_Button.TabIndex = 1
 		Me.Cancel_Button.Text = "Annulla"
 		'
@@ -177,19 +178,20 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel2.Controls.Add(Me.Cancel_Button, 44, 47)
 		Me.TableLayoutPanel2.Controls.Add(Me.GroupBox1, 1, 5)
 		Me.TableLayoutPanel2.Controls.Add(Me.ComboBox5, 1, 1)
-		Me.TableLayoutPanel2.Controls.Add(Me.Button2, 29, 1)
-		Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 34, 6)
+		Me.TableLayoutPanel2.Controls.Add(Me.cmd_SaveParams, 27, 1)
+		Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 34, 5)
+		Me.TableLayoutPanel2.Controls.Add(Me.cmd_RefreshGraph, 34, 1)
 		Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-		Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
+		Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
 		Me.TableLayoutPanel2.RowCount = 50
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
-		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
-		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
+		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.096627!))
+		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.914312!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
@@ -275,7 +277,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-		Me.TableLayoutPanel2.Size = New System.Drawing.Size(1902, 1153)
+		Me.TableLayoutPanel2.Size = New System.Drawing.Size(1028, 750)
 		Me.TableLayoutPanel2.TabIndex = 1
 		'
 		'GroupBox1
@@ -284,12 +286,12 @@ Partial Class Recipe_edit_dlg
 		Me.GroupBox1.Controls.Add(Me.TableLayoutPanel1)
 		Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.GroupBox1.Location = New System.Drawing.Point(38, 114)
+		Me.GroupBox1.Location = New System.Drawing.Point(20, 75)
 		Me.GroupBox1.Margin = New System.Windows.Forms.Padding(0, 4, 0, 4)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.TableLayoutPanel2.SetRowSpan(Me.GroupBox1, 46)
-		Me.GroupBox1.Size = New System.Drawing.Size(1216, 1035)
+		Me.GroupBox1.Size = New System.Drawing.Size(640, 671)
 		Me.GroupBox1.TabIndex = 4
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "GroupBox1"
@@ -363,7 +365,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDown15, 7, 13)
 		Me.TableLayoutPanel1.Controls.Add(Me.Label1, 10, 19)
 		Me.TableLayoutPanel1.Controls.Add(Me.TextBox3, 12, 19)
-		Me.TableLayoutPanel1.Controls.Add(Me.CheckBox3, 10, 21)
+		Me.TableLayoutPanel1.Controls.Add(Me.CheckBox3, 9, 21)
 		Me.TableLayoutPanel1.Controls.Add(Me.Label27, 10, 13)
 		Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDown19, 12, 13)
 		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1277,7 +1279,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(1208, 1011)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(632, 647)
 		Me.TableLayoutPanel1.TabIndex = 0
 		'
 		'Label24
@@ -1285,10 +1287,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label24, 3)
 		Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label24.Location = New System.Drawing.Point(434, 132)
+		Me.Label24.Location = New System.Drawing.Point(229, 84)
 		Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label24.Name = "Label24"
-		Me.Label24.Size = New System.Drawing.Size(250, 44)
+		Me.Label24.Size = New System.Drawing.Size(127, 28)
 		Me.Label24.TabIndex = 53
 		Me.Label24.Text = "FontName"
 		Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1299,10 +1301,10 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox6.FormattingEnabled = True
-		Me.ComboBox6.Location = New System.Drawing.Point(692, 136)
-		Me.ComboBox6.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox6.Location = New System.Drawing.Point(364, 88)
+		Me.ComboBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox6.Name = "ComboBox6"
-		Me.ComboBox6.Size = New System.Drawing.Size(512, 25)
+		Me.ComboBox6.Size = New System.Drawing.Size(264, 25)
 		Me.ComboBox6.TabIndex = 54
 		'
 		'NumericUpDown16
@@ -1310,12 +1312,12 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown16, 2)
 		Me.NumericUpDown16.DecimalPlaces = 2
 		Me.NumericUpDown16.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown16.Location = New System.Drawing.Point(262, 136)
-		Me.NumericUpDown16.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown16.Location = New System.Drawing.Point(139, 88)
+		Me.NumericUpDown16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown16.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown16.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown16.Name = "NumericUpDown16"
-		Me.NumericUpDown16.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown16.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown16.TabIndex = 52
 		'
 		'CheckBox4
@@ -1323,10 +1325,10 @@ Partial Class Recipe_edit_dlg
 		Me.CheckBox4.AutoSize = True
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox4, 3)
 		Me.CheckBox4.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.CheckBox4.Location = New System.Drawing.Point(4, 136)
-		Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4)
+		Me.CheckBox4.Location = New System.Drawing.Point(4, 88)
+		Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.CheckBox4.Name = "CheckBox4"
-		Me.CheckBox4.Size = New System.Drawing.Size(250, 36)
+		Me.CheckBox4.Size = New System.Drawing.Size(127, 20)
 		Me.CheckBox4.TabIndex = 51
 		Me.CheckBox4.Text = "Rounded Text"
 		Me.CheckBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1337,10 +1339,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label4, 2)
 		Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label4.Location = New System.Drawing.Point(4, 308)
+		Me.Label4.Location = New System.Drawing.Point(4, 196)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
-		Me.Label4.Size = New System.Drawing.Size(164, 44)
+		Me.Label4.Size = New System.Drawing.Size(82, 28)
 		Me.Label4.TabIndex = 2
 		Me.Label4.Text = "X pos"
 		Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1350,10 +1352,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label6, 2)
 		Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label6.Location = New System.Drawing.Point(4, 396)
+		Me.Label6.Location = New System.Drawing.Point(4, 252)
 		Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label6.Name = "Label6"
-		Me.Label6.Size = New System.Drawing.Size(164, 44)
+		Me.Label6.Size = New System.Drawing.Size(82, 28)
 		Me.Label6.TabIndex = 4
 		Me.Label6.Text = "X scale"
 		Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1361,13 +1363,13 @@ Partial Class Recipe_edit_dlg
 		'CheckBox1
 		'
 		Me.CheckBox1.AutoSize = True
-		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox1, 3)
+		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox1, 5)
 		Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.CheckBox1.Location = New System.Drawing.Point(90, 925)
-		Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
+		Me.CheckBox1.Location = New System.Drawing.Point(49, 589)
+		Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.CheckBox1.Name = "CheckBox1"
 		Me.TableLayoutPanel1.SetRowSpan(Me.CheckBox1, 2)
-		Me.CheckBox1.Size = New System.Drawing.Size(250, 82)
+		Me.CheckBox1.Size = New System.Drawing.Size(217, 54)
 		Me.CheckBox1.TabIndex = 13
 		Me.CheckBox1.Text = "Use this item"
 		Me.CheckBox1.UseVisualStyleBackColor = True
@@ -1377,10 +1379,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label3, 2)
 		Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(4, 44)
+		Me.Label3.Location = New System.Drawing.Point(4, 28)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(164, 44)
+		Me.Label3.Size = New System.Drawing.Size(82, 28)
 		Me.Label3.TabIndex = 1
 		Me.Label3.Text = "Text"
 		Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1389,10 +1391,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox1, 3)
 		Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TextBox1.Location = New System.Drawing.Point(176, 48)
-		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+		Me.TextBox1.Location = New System.Drawing.Point(94, 32)
+		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.Size = New System.Drawing.Size(250, 23)
+		Me.TextBox1.Size = New System.Drawing.Size(127, 23)
 		Me.TextBox1.TabIndex = 15
 		'
 		'Label2
@@ -1400,10 +1402,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label2, 2)
 		Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.Location = New System.Drawing.Point(434, 44)
+		Me.Label2.Location = New System.Drawing.Point(229, 28)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(164, 44)
+		Me.Label2.Size = New System.Drawing.Size(82, 28)
 		Me.Label2.TabIndex = 0
 		Me.Label2.Text = "H Font"
 		Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1414,10 +1416,10 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox1.FormattingEnabled = True
-		Me.ComboBox1.Location = New System.Drawing.Point(606, 48)
-		Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox1.Location = New System.Drawing.Point(319, 32)
+		Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox1.Name = "ComboBox1"
-		Me.ComboBox1.Size = New System.Drawing.Size(250, 25)
+		Me.ComboBox1.Size = New System.Drawing.Size(127, 25)
 		Me.ComboBox1.TabIndex = 14
 		'
 		'NumericUpDown1
@@ -1425,12 +1427,12 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown1, 2)
 		Me.NumericUpDown1.DecimalPlaces = 2
 		Me.NumericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown1.Location = New System.Drawing.Point(176, 312)
-		Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown1.Location = New System.Drawing.Point(94, 200)
+		Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown1.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown1.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown1.Name = "NumericUpDown1"
-		Me.NumericUpDown1.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown1.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown1.TabIndex = 16
 		'
 		'NumericUpDown2
@@ -1438,12 +1440,12 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown2, 2)
 		Me.NumericUpDown2.DecimalPlaces = 2
 		Me.NumericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown2.Location = New System.Drawing.Point(606, 312)
-		Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown2.Location = New System.Drawing.Point(319, 200)
+		Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown2.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown2.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown2.Name = "NumericUpDown2"
-		Me.NumericUpDown2.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown2.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown2.TabIndex = 17
 		'
 		'Label5
@@ -1451,10 +1453,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label5, 2)
 		Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label5.Location = New System.Drawing.Point(434, 308)
+		Me.Label5.Location = New System.Drawing.Point(229, 196)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
-		Me.Label5.Size = New System.Drawing.Size(164, 44)
+		Me.Label5.Size = New System.Drawing.Size(82, 28)
 		Me.Label5.TabIndex = 3
 		Me.Label5.Text = "Y pos"
 		Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1465,11 +1467,11 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown3.DecimalPlaces = 4
 		Me.NumericUpDown3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown3.Location = New System.Drawing.Point(176, 400)
-		Me.NumericUpDown3.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown3.Location = New System.Drawing.Point(94, 256)
+		Me.NumericUpDown3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown3.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown3.Name = "NumericUpDown3"
-		Me.NumericUpDown3.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown3.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown3.TabIndex = 18
 		'
 		'Label7
@@ -1477,10 +1479,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label7, 2)
 		Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label7.Location = New System.Drawing.Point(434, 396)
+		Me.Label7.Location = New System.Drawing.Point(229, 252)
 		Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label7.Name = "Label7"
-		Me.Label7.Size = New System.Drawing.Size(164, 44)
+		Me.Label7.Size = New System.Drawing.Size(82, 28)
 		Me.Label7.TabIndex = 5
 		Me.Label7.Text = "Y scale"
 		Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1491,11 +1493,11 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown4.DecimalPlaces = 4
 		Me.NumericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown4.Location = New System.Drawing.Point(606, 400)
-		Me.NumericUpDown4.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown4.Location = New System.Drawing.Point(319, 256)
+		Me.NumericUpDown4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown4.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown4.Name = "NumericUpDown4"
-		Me.NumericUpDown4.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown4.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown4.TabIndex = 19
 		'
 		'Label8
@@ -1503,10 +1505,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label8, 2)
 		Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label8.Location = New System.Drawing.Point(864, 396)
+		Me.Label8.Location = New System.Drawing.Point(454, 252)
 		Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label8.Name = "Label8"
-		Me.Label8.Size = New System.Drawing.Size(164, 44)
+		Me.Label8.Size = New System.Drawing.Size(82, 28)
 		Me.Label8.TabIndex = 6
 		Me.Label8.Text = "Z scale"
 		Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1517,11 +1519,11 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown5.DecimalPlaces = 4
 		Me.NumericUpDown5.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown5.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown5.Location = New System.Drawing.Point(1036, 400)
-		Me.NumericUpDown5.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown5.Location = New System.Drawing.Point(544, 256)
+		Me.NumericUpDown5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown5.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown5.Name = "NumericUpDown5"
-		Me.NumericUpDown5.Size = New System.Drawing.Size(168, 23)
+		Me.NumericUpDown5.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown5.TabIndex = 20
 		'
 		'Label9
@@ -1529,10 +1531,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label9, 2)
 		Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label9.Location = New System.Drawing.Point(4, 484)
+		Me.Label9.Location = New System.Drawing.Point(4, 308)
 		Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label9.Name = "Label9"
-		Me.Label9.Size = New System.Drawing.Size(164, 44)
+		Me.Label9.Size = New System.Drawing.Size(82, 28)
 		Me.Label9.TabIndex = 7
 		Me.Label9.Text = "X rotation"
 		Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1543,12 +1545,12 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown6.DecimalPlaces = 1
 		Me.NumericUpDown6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown6.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown6.Location = New System.Drawing.Point(176, 488)
-		Me.NumericUpDown6.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown6.Location = New System.Drawing.Point(94, 312)
+		Me.NumericUpDown6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown6.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown6.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown6.Name = "NumericUpDown6"
-		Me.NumericUpDown6.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown6.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown6.TabIndex = 21
 		'
 		'Label10
@@ -1556,10 +1558,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label10, 2)
 		Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label10.Location = New System.Drawing.Point(434, 484)
+		Me.Label10.Location = New System.Drawing.Point(229, 308)
 		Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label10.Name = "Label10"
-		Me.Label10.Size = New System.Drawing.Size(164, 44)
+		Me.Label10.Size = New System.Drawing.Size(82, 28)
 		Me.Label10.TabIndex = 8
 		Me.Label10.Text = "Y rotation"
 		Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1570,12 +1572,12 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown7.DecimalPlaces = 1
 		Me.NumericUpDown7.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown7.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown7.Location = New System.Drawing.Point(606, 488)
-		Me.NumericUpDown7.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown7.Location = New System.Drawing.Point(319, 312)
+		Me.NumericUpDown7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown7.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown7.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown7.Name = "NumericUpDown7"
-		Me.NumericUpDown7.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown7.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown7.TabIndex = 22
 		'
 		'Label11
@@ -1583,10 +1585,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label11, 2)
 		Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label11.Location = New System.Drawing.Point(864, 484)
+		Me.Label11.Location = New System.Drawing.Point(454, 308)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
-		Me.Label11.Size = New System.Drawing.Size(164, 44)
+		Me.Label11.Size = New System.Drawing.Size(82, 28)
 		Me.Label11.TabIndex = 9
 		Me.Label11.Text = "Z rotation"
 		Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1597,12 +1599,12 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown8.DecimalPlaces = 1
 		Me.NumericUpDown8.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown8.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown8.Location = New System.Drawing.Point(1036, 488)
-		Me.NumericUpDown8.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown8.Location = New System.Drawing.Point(544, 312)
+		Me.NumericUpDown8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown8.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown8.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown8.Name = "NumericUpDown8"
-		Me.NumericUpDown8.Size = New System.Drawing.Size(168, 23)
+		Me.NumericUpDown8.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown8.TabIndex = 23
 		'
 		'Label13
@@ -1610,10 +1612,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label13, 2)
 		Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label13.Location = New System.Drawing.Point(4, 833)
+		Me.Label13.Location = New System.Drawing.Point(4, 529)
 		Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label13.Name = "Label13"
-		Me.Label13.Size = New System.Drawing.Size(164, 44)
+		Me.Label13.Size = New System.Drawing.Size(82, 28)
 		Me.Label13.TabIndex = 11
 		Me.Label13.Text = "Energy"
 		Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1623,11 +1625,11 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown10, 2)
 		Me.NumericUpDown10.DecimalPlaces = 6
 		Me.NumericUpDown10.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown10.Location = New System.Drawing.Point(176, 837)
-		Me.NumericUpDown10.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown10.Location = New System.Drawing.Point(94, 533)
+		Me.NumericUpDown10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown10.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
 		Me.NumericUpDown10.Name = "NumericUpDown10"
-		Me.NumericUpDown10.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown10.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown10.TabIndex = 25
 		'
 		'Label14
@@ -1635,10 +1637,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label14, 2)
 		Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label14.Location = New System.Drawing.Point(434, 833)
+		Me.Label14.Location = New System.Drawing.Point(229, 529)
 		Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label14.Name = "Label14"
-		Me.Label14.Size = New System.Drawing.Size(164, 44)
+		Me.Label14.Size = New System.Drawing.Size(82, 28)
 		Me.Label14.TabIndex = 12
 		Me.Label14.Text = "Pitch"
 		Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1648,10 +1650,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown11, 2)
 		Me.NumericUpDown11.DecimalPlaces = 5
 		Me.NumericUpDown11.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown11.Location = New System.Drawing.Point(606, 837)
-		Me.NumericUpDown11.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown11.Location = New System.Drawing.Point(319, 533)
+		Me.NumericUpDown11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown11.Name = "NumericUpDown11"
-		Me.NumericUpDown11.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown11.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown11.TabIndex = 26
 		'
 		'Label12
@@ -1659,10 +1661,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label12, 2)
 		Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label12.Location = New System.Drawing.Point(864, 44)
+		Me.Label12.Location = New System.Drawing.Point(454, 28)
 		Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label12.Name = "Label12"
-		Me.Label12.Size = New System.Drawing.Size(164, 44)
+		Me.Label12.Size = New System.Drawing.Size(82, 28)
 		Me.Label12.TabIndex = 10
 		Me.Label12.Text = "Height"
 		Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1672,20 +1674,20 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown9, 2)
 		Me.NumericUpDown9.DecimalPlaces = 2
 		Me.NumericUpDown9.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown9.Location = New System.Drawing.Point(1036, 48)
-		Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown9.Location = New System.Drawing.Point(544, 32)
+		Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown9.Name = "NumericUpDown9"
-		Me.NumericUpDown9.Size = New System.Drawing.Size(168, 23)
+		Me.NumericUpDown9.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown9.TabIndex = 24
 		'
 		'Label15
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label15, 2)
 		Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label15.Location = New System.Drawing.Point(4, 220)
+		Me.Label15.Location = New System.Drawing.Point(4, 140)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(164, 44)
+		Me.Label15.Size = New System.Drawing.Size(82, 28)
 		Me.Label15.TabIndex = 27
 		Me.Label15.Text = "After"
 		Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1694,20 +1696,20 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox2, 3)
 		Me.TextBox2.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TextBox2.Location = New System.Drawing.Point(176, 224)
-		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+		Me.TextBox2.Location = New System.Drawing.Point(94, 144)
+		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.TextBox2.Name = "TextBox2"
-		Me.TextBox2.Size = New System.Drawing.Size(250, 23)
+		Me.TextBox2.Size = New System.Drawing.Size(127, 23)
 		Me.TextBox2.TabIndex = 28
 		'
 		'Button1
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Button1, 2)
 		Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Button1.Location = New System.Drawing.Point(520, 224)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Location = New System.Drawing.Point(274, 144)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(164, 36)
+		Me.Button1.Size = New System.Drawing.Size(82, 20)
 		Me.Button1.TabIndex = 29
 		Me.Button1.Text = "Path..."
 		Me.Button1.UseVisualStyleBackColor = True
@@ -1718,10 +1720,10 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label16, 5)
 		Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Label16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-		Me.Label16.Location = New System.Drawing.Point(688, 220)
+		Me.Label16.Location = New System.Drawing.Point(360, 140)
 		Me.Label16.Margin = New System.Windows.Forms.Padding(0)
 		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(430, 44)
+		Me.Label16.Size = New System.Drawing.Size(225, 28)
 		Me.Label16.TabIndex = 30
 		Me.Label16.Text = "Label16"
 		Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1731,10 +1733,10 @@ Partial Class Recipe_edit_dlg
 		Me.CheckBox2.AutoSize = True
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox2, 2)
 		Me.CheckBox2.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.CheckBox2.Location = New System.Drawing.Point(4, 576)
-		Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4)
+		Me.CheckBox2.Location = New System.Drawing.Point(4, 368)
+		Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.CheckBox2.Name = "CheckBox2"
-		Me.CheckBox2.Size = New System.Drawing.Size(164, 32)
+		Me.CheckBox2.Size = New System.Drawing.Size(82, 17)
 		Me.CheckBox2.TabIndex = 31
 		Me.CheckBox2.Text = "Inverted"
 		Me.CheckBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1744,10 +1746,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label17, 2)
 		Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label17.Location = New System.Drawing.Point(434, 572)
+		Me.Label17.Location = New System.Drawing.Point(229, 364)
 		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label17.Name = "Label17"
-		Me.Label17.Size = New System.Drawing.Size(164, 40)
+		Me.Label17.Size = New System.Drawing.Size(82, 25)
 		Me.Label17.TabIndex = 32
 		Me.Label17.Text = "Border"
 		Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1756,10 +1758,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label18, 2)
 		Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label18.Location = New System.Drawing.Point(4, 657)
+		Me.Label18.Location = New System.Drawing.Point(4, 417)
 		Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label18.Name = "Label18"
-		Me.Label18.Size = New System.Drawing.Size(164, 44)
+		Me.Label18.Size = New System.Drawing.Size(82, 28)
 		Me.Label18.TabIndex = 33
 		Me.Label18.Text = "Fill angle"
 		Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1768,10 +1770,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label19, 2)
 		Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label19.Location = New System.Drawing.Point(434, 657)
+		Me.Label19.Location = New System.Drawing.Point(229, 417)
 		Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label19.Name = "Label19"
-		Me.Label19.Size = New System.Drawing.Size(164, 44)
+		Me.Label19.Size = New System.Drawing.Size(82, 28)
 		Me.Label19.TabIndex = 34
 		Me.Label19.Text = "Fill spacing"
 		Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1780,10 +1782,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label20, 2)
 		Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label20.Location = New System.Drawing.Point(864, 657)
+		Me.Label20.Location = New System.Drawing.Point(454, 417)
 		Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label20.Name = "Label20"
-		Me.Label20.Size = New System.Drawing.Size(164, 44)
+		Me.Label20.Size = New System.Drawing.Size(82, 28)
 		Me.Label20.TabIndex = 35
 		Me.Label20.Text = "Beam diam."
 		Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1792,10 +1794,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown14, 2)
 		Me.NumericUpDown14.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown14.Location = New System.Drawing.Point(1036, 661)
-		Me.NumericUpDown14.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown14.Location = New System.Drawing.Point(544, 421)
+		Me.NumericUpDown14.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown14.Name = "NumericUpDown14"
-		Me.NumericUpDown14.Size = New System.Drawing.Size(168, 23)
+		Me.NumericUpDown14.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown14.TabIndex = 38
 		'
 		'NumericUpDown12
@@ -1803,22 +1805,22 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown12, 2)
 		Me.NumericUpDown12.DecimalPlaces = 1
 		Me.NumericUpDown12.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown12.Location = New System.Drawing.Point(176, 661)
-		Me.NumericUpDown12.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown12.Location = New System.Drawing.Point(94, 421)
+		Me.NumericUpDown12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown12.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown12.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown12.Name = "NumericUpDown12"
-		Me.NumericUpDown12.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown12.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown12.TabIndex = 36
 		'
 		'NumericUpDown13
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown13, 2)
 		Me.NumericUpDown13.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.NumericUpDown13.Location = New System.Drawing.Point(606, 661)
-		Me.NumericUpDown13.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown13.Location = New System.Drawing.Point(319, 421)
+		Me.NumericUpDown13.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown13.Name = "NumericUpDown13"
-		Me.NumericUpDown13.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown13.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown13.TabIndex = 37
 		'
 		'Label21
@@ -1826,10 +1828,10 @@ Partial Class Recipe_edit_dlg
 		Me.Label21.AutoSize = True
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label21, 2)
 		Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label21.Location = New System.Drawing.Point(4, 745)
+		Me.Label21.Location = New System.Drawing.Point(4, 473)
 		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label21.Name = "Label21"
-		Me.Label21.Size = New System.Drawing.Size(164, 44)
+		Me.Label21.Size = New System.Drawing.Size(82, 28)
 		Me.Label21.TabIndex = 39
 		Me.Label21.Text = "Fill direction"
 		Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1839,10 +1841,10 @@ Partial Class Recipe_edit_dlg
 		Me.Label22.AutoSize = True
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label22, 2)
 		Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label22.Location = New System.Drawing.Point(434, 745)
+		Me.Label22.Location = New System.Drawing.Point(229, 473)
 		Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label22.Name = "Label22"
-		Me.Label22.Size = New System.Drawing.Size(164, 44)
+		Me.Label22.Size = New System.Drawing.Size(82, 28)
 		Me.Label22.TabIndex = 40
 		Me.Label22.Text = "Fill type"
 		Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1852,10 +1854,10 @@ Partial Class Recipe_edit_dlg
 		Me.Label23.AutoSize = True
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label23, 2)
 		Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label23.Location = New System.Drawing.Point(864, 745)
+		Me.Label23.Location = New System.Drawing.Point(454, 473)
 		Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label23.Name = "Label23"
-		Me.Label23.Size = New System.Drawing.Size(164, 44)
+		Me.Label23.Size = New System.Drawing.Size(82, 28)
 		Me.Label23.TabIndex = 41
 		Me.Label23.Text = "Optimization"
 		Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1866,10 +1868,10 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox2.FormattingEnabled = True
-		Me.ComboBox2.Location = New System.Drawing.Point(176, 749)
-		Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox2.Location = New System.Drawing.Point(94, 477)
+		Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox2.Name = "ComboBox2"
-		Me.ComboBox2.Size = New System.Drawing.Size(164, 25)
+		Me.ComboBox2.Size = New System.Drawing.Size(82, 25)
 		Me.ComboBox2.TabIndex = 42
 		'
 		'ComboBox3
@@ -1878,10 +1880,10 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox3.FormattingEnabled = True
-		Me.ComboBox3.Location = New System.Drawing.Point(606, 749)
-		Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox3.Location = New System.Drawing.Point(319, 477)
+		Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox3.Name = "ComboBox3"
-		Me.ComboBox3.Size = New System.Drawing.Size(164, 25)
+		Me.ComboBox3.Size = New System.Drawing.Size(82, 25)
 		Me.ComboBox3.TabIndex = 43
 		'
 		'ComboBox4
@@ -1890,10 +1892,10 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox4.FormattingEnabled = True
-		Me.ComboBox4.Location = New System.Drawing.Point(1036, 749)
-		Me.ComboBox4.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox4.Location = New System.Drawing.Point(544, 477)
+		Me.ComboBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox4.Name = "ComboBox4"
-		Me.ComboBox4.Size = New System.Drawing.Size(168, 25)
+		Me.ComboBox4.Size = New System.Drawing.Size(84, 25)
 		Me.ComboBox4.TabIndex = 44
 		'
 		'NumericUpDown15
@@ -1902,20 +1904,20 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown15.DecimalPlaces = 1
 		Me.NumericUpDown15.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown15.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown15.Location = New System.Drawing.Point(606, 576)
-		Me.NumericUpDown15.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown15.Location = New System.Drawing.Point(319, 368)
+		Me.NumericUpDown15.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown15.Name = "NumericUpDown15"
-		Me.NumericUpDown15.Size = New System.Drawing.Size(164, 23)
+		Me.NumericUpDown15.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown15.TabIndex = 45
 		'
 		'Label1
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 2)
 		Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label1.Location = New System.Drawing.Point(864, 833)
+		Me.Label1.Location = New System.Drawing.Point(454, 529)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(164, 44)
+		Me.Label1.Size = New System.Drawing.Size(82, 28)
 		Me.Label1.TabIndex = 46
 		Me.Label1.Text = "DM text"
 		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1924,22 +1926,22 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox3, 2)
 		Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TextBox3.Location = New System.Drawing.Point(1036, 837)
-		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
+		Me.TextBox3.Location = New System.Drawing.Point(544, 533)
+		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.TextBox3.Name = "TextBox3"
-		Me.TextBox3.Size = New System.Drawing.Size(168, 23)
+		Me.TextBox3.Size = New System.Drawing.Size(84, 23)
 		Me.TextBox3.TabIndex = 47
 		'
 		'CheckBox3
 		'
 		Me.CheckBox3.AutoSize = True
-		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox3, 3)
+		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox3, 5)
 		Me.CheckBox3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.CheckBox3.Location = New System.Drawing.Point(864, 925)
-		Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4)
+		Me.CheckBox3.Location = New System.Drawing.Point(409, 589)
+		Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.CheckBox3.Name = "CheckBox3"
 		Me.TableLayoutPanel1.SetRowSpan(Me.CheckBox3, 2)
-		Me.CheckBox3.Size = New System.Drawing.Size(250, 82)
+		Me.CheckBox3.Size = New System.Drawing.Size(219, 54)
 		Me.CheckBox3.TabIndex = 48
 		Me.CheckBox3.Text = "Laser on back"
 		Me.CheckBox3.UseVisualStyleBackColor = True
@@ -1948,10 +1950,10 @@ Partial Class Recipe_edit_dlg
 		'
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Label27, 2)
 		Me.Label27.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Label27.Location = New System.Drawing.Point(864, 572)
+		Me.Label27.Location = New System.Drawing.Point(454, 364)
 		Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label27.Name = "Label27"
-		Me.Label27.Size = New System.Drawing.Size(164, 40)
+		Me.Label27.Size = New System.Drawing.Size(82, 25)
 		Me.Label27.TabIndex = 49
 		Me.Label27.Text = "Size"
 		Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1962,10 +1964,10 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown19.DecimalPlaces = 1
 		Me.NumericUpDown19.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown19.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-		Me.NumericUpDown19.Location = New System.Drawing.Point(1036, 576)
-		Me.NumericUpDown19.Margin = New System.Windows.Forms.Padding(4)
+		Me.NumericUpDown19.Location = New System.Drawing.Point(544, 368)
+		Me.NumericUpDown19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.NumericUpDown19.Name = "NumericUpDown19"
-		Me.NumericUpDown19.Size = New System.Drawing.Size(168, 23)
+		Me.NumericUpDown19.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown19.TabIndex = 50
 		'
 		'ComboBox5
@@ -1976,38 +1978,51 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.ComboBox5.FormattingEnabled = True
 		Me.ComboBox5.Items.AddRange(New Object() {"Line 1", "Line 2", "Line 3", "Line 4", "Line 5", "Line 6", "Line 7", "Line 8", "Serial", "Logo 1", "Logo 2", "Logo 3", "Logo 4", "Data matrix 1", "Data matrix 2"})
-		Me.ComboBox5.Location = New System.Drawing.Point(42, 26)
-		Me.ComboBox5.Margin = New System.Windows.Forms.Padding(4)
+		Me.ComboBox5.Location = New System.Drawing.Point(24, 18)
+		Me.ComboBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.ComboBox5.Name = "ComboBox5"
 		Me.TableLayoutPanel2.SetRowSpan(Me.ComboBox5, 4)
-		Me.ComboBox5.Size = New System.Drawing.Size(372, 33)
+		Me.ComboBox5.Size = New System.Drawing.Size(192, 33)
 		Me.ComboBox5.TabIndex = 6
 		'
-		'Button2
+		'cmd_SaveParams
 		'
-		Me.TableLayoutPanel2.SetColumnSpan(Me.Button2, 4)
-		Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button2.Location = New System.Drawing.Point(1106, 26)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button2.Name = "Button2"
-		Me.TableLayoutPanel2.SetRowSpan(Me.Button2, 2)
-		Me.Button2.Size = New System.Drawing.Size(144, 36)
-		Me.Button2.TabIndex = 7
-		Me.Button2.Text = "Update item"
-		Me.Button2.UseVisualStyleBackColor = True
+		Me.TableLayoutPanel2.SetColumnSpan(Me.cmd_SaveParams, 6)
+		Me.cmd_SaveParams.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.cmd_SaveParams.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cmd_SaveParams.Location = New System.Drawing.Point(544, 18)
+		Me.cmd_SaveParams.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmd_SaveParams.Name = "cmd_SaveParams"
+		Me.TableLayoutPanel2.SetRowSpan(Me.cmd_SaveParams, 3)
+		Me.cmd_SaveParams.Size = New System.Drawing.Size(112, 34)
+		Me.cmd_SaveParams.TabIndex = 7
+		Me.cmd_SaveParams.Text = "Save parameters to recipe"
+		Me.cmd_SaveParams.UseVisualStyleBackColor = True
 		'
 		'PictureBox1
 		'
 		Me.TableLayoutPanel2.SetColumnSpan(Me.PictureBox1, 15)
 		Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.PictureBox1.Location = New System.Drawing.Point(1295, 134)
+		Me.PictureBox1.Location = New System.Drawing.Point(683, 73)
 		Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.PictureBox1.Name = "PictureBox1"
 		Me.TableLayoutPanel2.SetRowSpan(Me.PictureBox1, 30)
-		Me.PictureBox1.Size = New System.Drawing.Size(562, 653)
+		Me.PictureBox1.Size = New System.Drawing.Size(293, 414)
 		Me.PictureBox1.TabIndex = 8
 		Me.PictureBox1.TabStop = False
+		'
+		'cmd_RefreshGraph
+		'
+		Me.TableLayoutPanel2.SetColumnSpan(Me.cmd_RefreshGraph, 5)
+		Me.cmd_RefreshGraph.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.cmd_RefreshGraph.Location = New System.Drawing.Point(683, 16)
+		Me.cmd_RefreshGraph.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.cmd_RefreshGraph.Name = "cmd_RefreshGraph"
+		Me.TableLayoutPanel2.SetRowSpan(Me.cmd_RefreshGraph, 3)
+		Me.cmd_RefreshGraph.Size = New System.Drawing.Size(94, 38)
+		Me.cmd_RefreshGraph.TabIndex = 9
+		Me.cmd_RefreshGraph.Text = "Refresh"
+		Me.cmd_RefreshGraph.UseVisualStyleBackColor = True
 		'
 		'OpenFileDialog1
 		'
@@ -2018,10 +2033,10 @@ Partial Class Recipe_edit_dlg
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.CancelButton = Me.Cancel_Button
-		Me.ClientSize = New System.Drawing.Size(1902, 1153)
+		Me.ClientSize = New System.Drawing.Size(1028, 750)
 		Me.Controls.Add(Me.TableLayoutPanel2)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-		Me.Margin = New System.Windows.Forms.Padding(4)
+		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "Recipe_edit_dlg"
@@ -2103,7 +2118,7 @@ Partial Class Recipe_edit_dlg
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label27 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents cmd_SaveParams As Button
     Friend WithEvents NumericUpDown5 As NumericUpDown
     Friend WithEvents NumericUpDown8 As NumericUpDown
     Friend WithEvents NumericUpDown9 As NumericUpDown
@@ -2116,4 +2131,5 @@ Partial Class Recipe_edit_dlg
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label24 As Label
     Friend WithEvents ComboBox6 As ComboBox
+    Friend WithEvents cmd_RefreshGraph As Button
 End Class
