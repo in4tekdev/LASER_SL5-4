@@ -1,0 +1,498 @@
+﻿Imports System.Threading
+Imports IpgMarkingGraphicsLibrary
+Imports System.IO
+
+Public Class Laser_EventArgs
+    Inherits System.EventArgs
+
+    Public Laser_stat As laser_status_struct
+
+    Public Sub New(argu As laser_status_struct)
+        MyBase.New
+        Laser_stat.msg_target = argu.msg_target
+        Laser_stat.msg_str = argu.msg_str
+    End Sub
+End Class
+
+Public Class Ipg_laser_class
+
+    Public Event Ipg_laser_event(ByVal sender As Object, ByVal e As Laser_EventArgs)
+
+    'COSTRUTTORI------------------------------------------------------------------
+    Public Sub New(nane As String)
+        ipg_name = nane
+    End Sub
+    'COSTRUTTORI END ------------------------------------------------------------------
+
+    'VARIABILI PRIVATE------------------------------------------------------------------
+    Private ipg_name As String   'nome del laser in formato stringa per la connessione
+    'Private dat_mode As Integer
+    Private ipg_queue As New Queue
+    Private laser_status As laser_status_struct
+    Private laser_busy As Boolean = False
+    'Private Daq970a_results As Daq970a_results_struct
+    Private Exit_ipg_thread As Boolean = False
+
+    Private ipg_command As ipg_cmd_struct
+    Private IPGGraphicsDir As String = Environment.GetEnvironmentVariable("IPG_GRAPHICS_ROOT")
+
+    Private textVectors(9) As VectorList
+    Private textVectorProperties(9) As OutputVectorsProperties
+
+    Private logoVectors(3) As VectorList
+    Private logoVectorProperties(3) As OutputVectorsProperties
+
+    Private barcodeVectors(2) As VectorList
+    Private barcodeVectorProperties(2) As OutputVectorsProperties
+    Private outline(2) As VectorList
+    Private fillVectors(3) As VectorList
+
+    'Private textVectors_1 As VectorList
+    'Private textVectors_2 As VectorList
+    'Private textVectors_3 As VectorList
+    'Private textVectors_4 As VectorList
+    'Private dxfVectors As VectorList
+    'Private textVectorProperties_1 As OutputVectorsProperties
+    'Private textVectorProperties_2 As OutputVectorsProperties
+    'Private textVectorProperties_3 As OutputVectorsProperties
+    'Private textVectorProperties_4 As OutputVectorsProperties
+    'Private textVectorProperties_5 As OutputVectorsProperties
+
+
+
+
+    'Private barcodeVectorProperties_1 As OutputVectorsProperties
+    'Private barcodeVectorProperties_2 As OutputVectorsProperties
+    'Private barcodeVectors_1 As VectorList
+    'Private barcodeVectors_2 As VectorList
+    'Private outline_1 As VectorList
+    'Private outline_2 As VectorList
+    'Private fillVectors_1 As VectorList
+    'Private fillVectors_2 As VectorList
+
+    Private ack_to_start As Boolean
+
+    'VARIABILI PRIVATE END------------------------------------------------------------------
+
+    'VARIABILI PUBBLICHE------------------------------------------------------------------
+
+    Public Client_ipg As Thread
+
+    'VARIABILI PUBBLICHE END------------------------------------------------------------------
+
+    'PROPRIETA------------------------------------------------------------------
+    Property ipg_exit_thread() As Boolean
+        Get
+            Return Exit_ipg_thread
+        End Get
+        Set(exit_ipg As Boolean)
+            Exit_ipg_thread = exit_ipg
+        End Set
+    End Property
+    Property is_laser_busy() As Boolean
+        Get
+            Return laser_busy
+        End Get
+        Set(las_bus As Boolean)
+            laser_busy = las_bus
+        End Set
+
+    End Property
+    'Property d_mode() As Integer
+    '    Get
+    '        Return dat_mode
+    '    End Get
+    '    Set(modo As Integer)
+    '        dat_mode = modo
+    '    End Set
+
+    'End Property
+
+    Property ack_start() As Boolean
+        Get
+            Return ack_to_start
+        End Get
+        Set(ack As Boolean)
+            ack_to_start = ack
+        End Set
+
+    End Property
+
+    'PROPRIETA END------------------------------------------------------------------
+
+
+    'FUNZIONI------------------------------------------------------------------
+    'Public Sub Add_ipg_cmd(cmd As String, arg As String, arg_2 As String, wait_ans As Boolean)
+
+    '    Dim ipg_cmd As ipg_cmd_struct
+
+    '    ipg_cmd.Argomento = arg
+    '    ipg_cmd.cmd = cmd   'cmd al momento non viene usato, ereditato da una vecchia versione, lo lasciamo che non si sa mai...
+    '    'If (arg = "") Then
+    '    '    ipg_cmd.Comando = cmd
+    '    'Else
+    '    '    ipg_cmd.Comando = cmd & " " & arg
+    '    'End If
+    '    ipg_cmd.Argomento = arg
+    '    ipg_cmd.Argomento_2 = arg_2
+
+    '    ipg_cmd.Ans_req = wait_ans
+
+    '    ipg_queue.Enqueue(ipg_cmd)
+    '    laser_busy = True
+
+    'End Sub
+    Public Sub Add_ipg_cmd(fronte_retro As Boolean, use_guide As Boolean, serial As String, DMText As String)
+
+        Dim ipg_cmd As ipg_cmd_struct
+
+        ipg_cmd.fronte_retro = fronte_retro
+        ipg_cmd.use_guide = use_guide
+        ipg_cmd.serial = serial
+        ipg_cmd.DMText = DMText
+
+        ipg_queue.Enqueue(ipg_cmd)
+        laser_busy = True
+
+    End Sub
+
+    Public Sub Client_thread_ipg()
+
+        Dim i As Integer
+        Dim mul As Integer = 0
+        Dim head As Scanner
+
+        Try
+            head = New Scanner(Station_settings.LaserName, True, Units.Millimeters)
+        Catch ex As Exception
+            laser_status.msg_str = "Init error: " & ex.Message
+            laser_status.msg_target = laser_target_enu.ERRORE_INIZIALIZZAZIONE
+            On_new_laser_event(New Laser_EventArgs(laser_status))
+
+            GoTo no_thread
+
+        End Try
+
+
+
+        Try
+
+            Debug.Print("Connected to To:" + Station_settings.LaserName)
+
+            laser_status.msg_str = "Laser initialized"
+            laser_status.msg_target = laser_target_enu.INIZIALIZZATO
+            On_new_laser_event(New Laser_EventArgs(laser_status))
+
+            While (1)
+                Thread.Sleep(150)
+
+                'head.Wait(WaitEvent.StartBit)
+                'If head.WaitStatus = 4 Then
+                '    MsgBox("start bit arrivato")
+                '    head.
+                'End If
+                'head.OutputSignals.ActiveBit = 
+
+                Try
+
+                    If (ipg_queue.Count > 0) Then
+                        laser_status.msg_str = "Laser running"
+                        laser_status.msg_target = laser_target_enu.INIZIATO
+                        On_new_laser_event(New Laser_EventArgs(laser_status))
+                        laser_busy = True
+
+                        ipg_command = ipg_queue.Peek
+
+                        For mul = 0 To Recipe.Cloning - 1
+
+                            For i = 0 To 9
+                                Create_text(i, ipg_command.serial, Recipe.X_cloning * mul, Recipe.Y_cloning * mul)
+                            Next
+
+                            For i = 0 To 3
+                                Create_logo(i, Recipe.X_cloning * mul, Recipe.X_cloning * mul)
+                            Next
+
+                            For i = 0 To 1
+                                Create_datamatrix(i, Recipe.X_cloning * mul, Recipe.X_cloning * mul)
+                            Next
+
+                            'inizio scrittura
+                            ' Output to head
+                            If ipg_command.use_guide Then  'accende puntino rosso
+                                head.Guide = True
+                            Else    'POTENZA AL LASER !!!!!!
+                                head.Laser(LaserAction.Enable)
+                            End If
+
+
+                            'TESTO
+                            For i = 0 To 9
+
+                                If (Recipe.Line_items(i).item_type <> 0) Then
+
+                                    If ((ipg_command.fronte_retro = False) And (Recipe.Line_items(i).laser_on_back = False)) Or    'laser fronte
+                                       ((ipg_command.fronte_retro = True) And (Recipe.Line_items(i).laser_on_back = True)) Then    'laser retro
+
+                                        head.Output(textVectors(i), textVectorProperties(i))
+
+                                        While (head.IsDone = False)
+                                            Threading.Thread.Sleep(20)
+                                        End While
+
+                                    End If
+
+                                End If
+
+                            Next
+
+                            'LOGO
+                            For i = 0 To 3
+
+                                If (Recipe.Logo_items(i).item_type <> 0) Then
+
+                                    If ((ipg_command.fronte_retro = False) And (Recipe.Logo_items(i).laser_on_back = False)) Or    'laser fronte
+                                       ((ipg_command.fronte_retro = True) And (Recipe.Logo_items(i).laser_on_back = True)) Then    'laser retro
+
+                                        head.Output(logoVectors(i), logoVectorProperties(i))
+
+                                        While (head.IsDone = False)
+                                            Threading.Thread.Sleep(20)
+                                        End While
+
+                                    End If
+
+                                End If
+
+                            Next
+
+                            'DATAMATRIX
+                            For i = 0 To 1
+
+                                If (Recipe.Datamatrix_items(i).item_type <> 0) Then
+
+                                    If ((ipg_command.fronte_retro = False) And (Recipe.Datamatrix_items(i).laser_on_back = False)) Or    'laser fronte
+                                        ((ipg_command.fronte_retro = True) And (Recipe.Datamatrix_items(i).laser_on_back = True)) Then    'laser retro
+
+                                        head.Output(barcodeVectors(i), barcodeVectorProperties(i))
+
+                                        While (head.IsDone = False)
+                                            Threading.Thread.Sleep(20)
+                                        End While
+
+                                    End If
+
+                                End If
+
+                            Next
+
+                            'fine scrittura
+                            If ipg_command.use_guide Then  'spegne puntino rosso
+                                head.Guide = False
+                            Else    'TOGLIE POTENZA AL LASER !!!!!!
+                                head.Laser(LaserAction.Disable)
+                            End If
+
+                            'Debug.Print("Terminated OK" & Now & "." & Now.Millisecond)
+                        Next
+                        laser_busy = False
+                        laser_status.msg_str = "Laser free"
+                        laser_status.msg_target = laser_target_enu.FINITO
+                        On_new_laser_event(New Laser_EventArgs(laser_status))
+
+                        'comando terminato, rilascia il buffer comandi
+                        ipg_queue.Dequeue()
+
+                    End If
+
+                Catch ex As Exception
+                    Debug.Print(ex.Message)
+                    Dim st As New StackTrace(True)
+                    st = New StackTrace(ex, True)
+                    Debug.Print("line: " & st.GetFrame(0).GetFileLineNumber.ToString)
+
+                    laser_status.msg_str = ex.Message
+                    laser_status.msg_target = laser_target_enu.ECCEZIONE
+                    On_new_laser_event(New Laser_EventArgs(laser_status))
+                End Try
+
+exit_thread:
+                If Exit_ipg_thread Then
+                    head.Close()
+                    Exit While
+                End If
+
+
+            End While
+        Catch ex As Exception
+            head.Close()
+            Debug.Print(ex.Message)
+        End Try
+
+no_thread:
+
+    End Sub
+
+    Public Sub Create_datamatrix(idx As Integer, shift_x As Single, shift_y As Single)
+
+        If (Recipe.Datamatrix_items(idx).item_type <> 0) Then
+
+            barcodeVectors(idx) = New VectorList(New BarcodeProperties(BarcodeType.DataMatrix, Recipe.Datamatrix_items(idx).dm_size, las1.DMtext, False))			
+
+            ' Fill datamatrix
+            If (Recipe.Datamatrix_items(idx).dm_inverted = True) Then  ' Se il tipo è invertito allora creaiamo l'outline
+                outline(idx) = New VectorList(New BoxProperties(Recipe.Datamatrix_items(idx).dm_size + Recipe.Datamatrix_items(idx).dm_border))  ' used to invert for negative
+                barcodeVectors(idx).Append(outline(idx))
+            End If
+
+            fillVectors(idx) = New VectorList(New FillProperties(barcodeVectors(idx), Recipe.Datamatrix_items(idx).dm_fill_angle * Math.PI / 180.0F, Recipe.Datamatrix_items(idx).dm_fill_spacing, Recipe.Datamatrix_items(idx).dm_beam_diameter, Recipe.Datamatrix_items(idx).dm_direction, Recipe.Datamatrix_items(idx).dm_grid_type))
+            barcodeVectors(idx) = fillVectors(idx)
+
+            barcodeVectors(idx).Shift(Recipe.Datamatrix_items(idx).dm_x_pos + shift_x, Recipe.Datamatrix_items(idx).dm_y_pos + shift_y)
+            barcodeVectors(idx).Rotate(Math.PI - (Recipe.Datamatrix_items(idx).dm_z_rotate * Math.PI / 180))
+
+            barcodeVectorProperties(idx) = New OutputVectorsProperties(Recipe.Datamatrix_items(idx).dm_pitch, Recipe.Datamatrix_items(idx).dm_energy, Recipe.Datamatrix_items(idx).dm_optimization)
+
+        End If
+
+
+
+        'If (dat_mode = 1) Then
+        '    barcodeVectors_1 = New VectorList(New BarcodeProperties(BarcodeType.DataMatrix, Recipe.Laser_param.size_dm, Recipe.Laser_param.line_1_str & ":" & ipg_command.Argomento, False))
+        'ElseIf (dat_mode = 2) Then
+        '    barcodeVectors_1 = New VectorList(New BarcodeProperties(BarcodeType.DataMatrix, Recipe.Laser_param.size_dm, Recipe.Laser_param.cust_code & ipg_command.Argomento, False))
+        'Else    'solo per sicurezza
+        '    barcodeVectors_1 = New VectorList(New BarcodeProperties(BarcodeType.DataMatrix, Recipe.Laser_param.size_dm, Recipe.Laser_param.line_1_str & ipg_command.Argomento, False))
+        'End If
+
+        'outline_1 = New VectorList(New BoxProperties(Recipe.Laser_param.size_dm + 1))  ' used to invert for negative
+        'barcodeVectors_1.Append(outline_1)
+
+        'Fill Barcode
+        'fillVectors_1 = New VectorList(New FillProperties(barcodeVectors_1, Convert.ToSingle(45.0F * Math.PI / 180.0F), 0.06F, Recipe.Laser_param.fill_pitch_dm_1, FillDirection.UniDirection, FillType.EdgeToEdge))
+        'barcodeVectors_1 = fillVectors_1
+
+
+    End Sub
+
+    Public Sub Create_text(idx As Integer, serial As String, shift_x As Single, shift_y As Single)
+		try
+        If (Recipe.Line_items(idx).item_type <> 0) Then
+
+            'controllo se il campo è Text o HersheyText
+            If String.IsNullOrEmpty(Recipe.Line_items(idx).t_fontName) Then
+                'se nel campo ricetta il nome del font è Null o vuoto, il campo è HersheyText
+
+                If (idx = 9) Then
+                    textVectors(idx) = New VectorList(New TextProperties(Recipe.Line_items(idx).t_before & serial & Recipe.Line_items(idx).t_after, Recipe.Line_items(idx).t_font, Recipe.Line_items(idx).t_height, 0))
+                Else
+                    If idx = 0 Then
+                        'creo il testo per il DataMatrix
+                        las1.DMtext = Recipe.Line_items(0).t_text + ipg_command.DMText
+                    End If
+                    textVectors(idx) = New VectorList(New TextProperties(Recipe.Line_items(idx).t_text, Recipe.Line_items(idx).t_font, Recipe.Line_items(idx).t_height, 0))
+                End If
+
+                textVectors(idx).Scale(Recipe.Line_items(idx).t_x_scale, Recipe.Line_items(idx).t_y_scale, Recipe.Line_items(idx).t_z_scale)
+                textVectors(idx).Shift(Recipe.Line_items(idx).t_x_pos + shift_x, Recipe.Line_items(idx).t_y_pos + shift_y)
+                textVectors(idx).Rotate(Recipe.Line_items(idx).t_x_rotate * Math.PI / 180, Recipe.Line_items(idx).t_y_rotate * Math.PI / 180, Recipe.Line_items(idx).t_z_rotate * Math.PI / 180)
+                If Recipe.Line_items(idx).txt_rounded = 1 Then
+                    textVectors(idx).WrapCircle(Recipe.Line_items(idx).txt_round_dim, 0)
+                End If
+                textVectorProperties(idx) = New OutputVectorsProperties(Recipe.Line_items(idx).t_pitch, Recipe.Line_items(idx).t_energy, Optimization.Quality)
+
+            Else
+                'altrimenti se nel campo ricetta c'è il nome del font di sistema, è un campo Text
+
+                'in questo caso controllo che esista il Font nel sistema
+                If FontExists(Recipe.Line_items(idx).t_fontName) = True Then
+                    If (idx = 9) Then
+                        textVectors(idx) = New VectorList(New TextProperties(Recipe.Line_items(idx).t_before & serial & Recipe.Line_items(idx).t_after, Recipe.Line_items(idx).t_fontName, Recipe.Line_items(idx).t_height, 0))
+                    Else
+                        If idx = 0 Then
+                            'creo il testo per il DataMatrix
+                            las1.DMtext = Recipe.Line_items(0).t_text + ipg_command.DMText
+                        End If
+
+                        textVectors(idx) = New VectorList(New TextProperties(Recipe.Line_items(idx).t_text, Recipe.Line_items(idx).t_fontName, Recipe.Line_items(idx).t_height, 0))
+                    End If
+                    fillVectors(idx) = New VectorList(New FillProperties(textVectors(idx), Recipe.Line_items(idx).dm_fill_angle * Math.PI / 180.0F, Recipe.Line_items(idx).dm_fill_spacing, Recipe.Line_items(idx).dm_beam_diameter, Recipe.Line_items(idx).dm_direction, Recipe.Line_items(idx).dm_grid_type))
+                    textVectors(idx) = fillVectors(idx)
+
+                    textVectors(idx).Scale(Recipe.Line_items(idx).t_x_scale, Recipe.Line_items(idx).t_y_scale, Recipe.Line_items(idx).t_z_scale)
+                    textVectors(idx).Shift(Recipe.Line_items(idx).t_x_pos + shift_x, Recipe.Line_items(idx).t_y_pos + shift_y)
+                    textVectors(idx).Rotate(Recipe.Line_items(idx).t_x_rotate * Math.PI / 180, Recipe.Line_items(idx).t_y_rotate * Math.PI / 180, Recipe.Line_items(idx).t_z_rotate * Math.PI / 180)
+                    If Recipe.Line_items(idx).txt_rounded = 1 Then
+                        textVectors(idx).WrapCircle(Recipe.Line_items(idx).txt_round_dim, 0)
+                    End If
+                    textVectorProperties(idx) = New OutputVectorsProperties(Recipe.Line_items(idx).t_pitch, Recipe.Line_items(idx).t_energy, Optimization.Quality)
+                Else
+                    'il font non esiste nel sistema, non è installato oppure il nome non è corretto
+                    Logs.Add_log_element("Log_laser_class [Create_text]", "ERROR: the font '" & Recipe.Line_items(idx).t_fontName & "' of item " & idx & " does not exist!" & vbCrLf & "Recipe=" & Recipe.Recipe_name.ToString)
+                    MsgBox("Error creating text for Laser. [Log_laser_class].[Create_text]" & vbCrLf & "The font '" & Recipe.Line_items(idx).t_fontName & "' of item " & idx & " does not exist!" & vbCrLf & "Recipe=" & Recipe.Recipe_name.ToString, MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Critical Error")
+                End If
+
+            End If
+
+        End If
+
+    End Sub
+
+    Public Sub Create_logo(idx As Integer, shift_x As Single, shift_y As Single)
+
+        Try
+
+            If (Recipe.Logo_items(idx).item_type <> 0) Then
+
+                Dim dxfName As String = Recipe.Logo_items(idx).l_path
+                dxfName = dxfName.Trim()
+                If (File.Exists(dxfName)) Then
+                    logoVectors(idx) = New VectorList(New DxfProperties(dxfName, True))
+                    logoVectors(idx).Scale(Recipe.Logo_items(idx).l_x_scale, Recipe.Logo_items(idx).l_y_scale, Recipe.Logo_items(idx).l_z_scale)
+                    logoVectors(idx).Shift(Recipe.Logo_items(idx).l_x_pos + shift_x, Recipe.Logo_items(idx).l_y_pos + shift_y)
+                    logoVectors(idx).Append(New VectorList(New FillProperties(logoVectors(idx), Convert.ToSingle(45.0F * Math.PI / 180.0F), 10 * Recipe.Logo_items(idx).l_pitch, Recipe.Logo_items(idx).l_pitch / 2, FillDirection.UniDirection, FillType.EdgeToEdge)))
+                    logoVectors(idx).Rotate(Recipe.Logo_items(idx).l_x_rotate * Math.PI / 180, Recipe.Logo_items(idx).l_y_rotate * Math.PI / 180, Recipe.Logo_items(idx).l_z_rotate * Math.PI / 180)
+                    logoVectorProperties(idx) = New OutputVectorsProperties(Recipe.Logo_items(idx).l_pitch, Recipe.Logo_items(idx).l_energy, Optimization.Quality)
+                Else
+                    Recipe.Logo_items(idx).item_type = 0
+                End If
+            End If
+
+        Catch ex As Exception
+            Recipe.Logo_items(idx).item_type = 0
+        End Try
+
+    End Sub
+
+    Protected Overridable Sub On_new_laser_event(ByVal e As Laser_EventArgs)
+        RaiseEvent Ipg_laser_event(Me, e)
+    End Sub
+
+    'FUNZIONI END------------------------------------------------------------------
+
+End Class
+
+Public Structure ipg_cmd_struct
+
+    Public fronte_retro As Boolean  'false fronte, true retro
+    Public use_guide As Boolean     'false usa la potenza, true usa il puntatore
+    Public serial As String         'seriale progressivo
+    Public DMText As String
+
+End Structure
+
+Public Structure laser_status_struct
+
+    Public msg_target As laser_target_enu
+    Public msg_str As String
+
+End Structure
+
+Public Enum laser_target_enu
+    ECCEZIONE = 1
+    INIZIATO
+    FINITO
+    INIZIALIZZATO
+    ERRORE_INIZIALIZZAZIONE
+
+End Enum
