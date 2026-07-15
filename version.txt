@@ -1,0 +1,4 @@
+versione 1.0.1.2
+08/07/2026
+- nuova versione per correzione editor ricette e correzione BUG caricamento dati ricetta
+- TODO: vedere se è possibile sistemare anteprima grafica parametri laseratura

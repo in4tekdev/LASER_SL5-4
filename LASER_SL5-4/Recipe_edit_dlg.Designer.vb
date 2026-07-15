@@ -183,7 +183,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel2.Controls.Add(Me.cmd_RefreshGraph, 34, 1)
 		Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-		Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
 		Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
 		Me.TableLayoutPanel2.RowCount = 50
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
@@ -289,7 +289,7 @@ Partial Class Recipe_edit_dlg
 		Me.GroupBox1.Location = New System.Drawing.Point(20, 75)
 		Me.GroupBox1.Margin = New System.Windows.Forms.Padding(0, 4, 0, 4)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
 		Me.TableLayoutPanel2.SetRowSpan(Me.GroupBox1, 46)
 		Me.GroupBox1.Size = New System.Drawing.Size(640, 671)
 		Me.GroupBox1.TabIndex = 4
@@ -1302,7 +1302,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox6.FormattingEnabled = True
 		Me.ComboBox6.Location = New System.Drawing.Point(364, 88)
-		Me.ComboBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox6.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox6.Name = "ComboBox6"
 		Me.ComboBox6.Size = New System.Drawing.Size(264, 25)
 		Me.ComboBox6.TabIndex = 54
@@ -1313,7 +1313,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown16.DecimalPlaces = 2
 		Me.NumericUpDown16.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown16.Location = New System.Drawing.Point(139, 88)
-		Me.NumericUpDown16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown16.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown16.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown16.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown16.Name = "NumericUpDown16"
@@ -1326,7 +1326,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox4, 3)
 		Me.CheckBox4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CheckBox4.Location = New System.Drawing.Point(4, 88)
-		Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4)
 		Me.CheckBox4.Name = "CheckBox4"
 		Me.CheckBox4.Size = New System.Drawing.Size(127, 20)
 		Me.CheckBox4.TabIndex = 51
@@ -1366,7 +1366,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox1, 5)
 		Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CheckBox1.Location = New System.Drawing.Point(49, 589)
-		Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
 		Me.CheckBox1.Name = "CheckBox1"
 		Me.TableLayoutPanel1.SetRowSpan(Me.CheckBox1, 2)
 		Me.CheckBox1.Size = New System.Drawing.Size(217, 54)
@@ -1392,7 +1392,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox1, 3)
 		Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TextBox1.Location = New System.Drawing.Point(94, 32)
-		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
 		Me.TextBox1.Name = "TextBox1"
 		Me.TextBox1.Size = New System.Drawing.Size(127, 23)
 		Me.TextBox1.TabIndex = 15
@@ -1417,7 +1417,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox1.FormattingEnabled = True
 		Me.ComboBox1.Location = New System.Drawing.Point(319, 32)
-		Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox1.Name = "ComboBox1"
 		Me.ComboBox1.Size = New System.Drawing.Size(127, 25)
 		Me.ComboBox1.TabIndex = 14
@@ -1428,7 +1428,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown1.DecimalPlaces = 2
 		Me.NumericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown1.Location = New System.Drawing.Point(94, 200)
-		Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown1.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown1.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -1441,7 +1441,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown2.DecimalPlaces = 2
 		Me.NumericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown2.Location = New System.Drawing.Point(319, 200)
-		Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown2.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
 		Me.NumericUpDown2.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147483648})
 		Me.NumericUpDown2.Name = "NumericUpDown2"
@@ -1468,7 +1468,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown3.Location = New System.Drawing.Point(94, 256)
-		Me.NumericUpDown3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown3.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown3.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown3.Name = "NumericUpDown3"
 		Me.NumericUpDown3.Size = New System.Drawing.Size(82, 23)
@@ -1494,7 +1494,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown4.Location = New System.Drawing.Point(319, 256)
-		Me.NumericUpDown4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown4.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown4.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown4.Name = "NumericUpDown4"
 		Me.NumericUpDown4.Size = New System.Drawing.Size(82, 23)
@@ -1520,7 +1520,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown5.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown5.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown5.Location = New System.Drawing.Point(544, 256)
-		Me.NumericUpDown5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown5.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown5.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
 		Me.NumericUpDown5.Name = "NumericUpDown5"
 		Me.NumericUpDown5.Size = New System.Drawing.Size(84, 23)
@@ -1546,7 +1546,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown6.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown6.Location = New System.Drawing.Point(94, 312)
-		Me.NumericUpDown6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown6.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown6.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown6.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown6.Name = "NumericUpDown6"
@@ -1573,7 +1573,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown7.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown7.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown7.Location = New System.Drawing.Point(319, 312)
-		Me.NumericUpDown7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown7.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown7.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown7.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown7.Name = "NumericUpDown7"
@@ -1600,7 +1600,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown8.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown8.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown8.Location = New System.Drawing.Point(544, 312)
-		Me.NumericUpDown8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown8.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown8.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown8.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown8.Name = "NumericUpDown8"
@@ -1626,7 +1626,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown10.DecimalPlaces = 6
 		Me.NumericUpDown10.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown10.Location = New System.Drawing.Point(94, 533)
-		Me.NumericUpDown10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown10.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown10.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
 		Me.NumericUpDown10.Name = "NumericUpDown10"
 		Me.NumericUpDown10.Size = New System.Drawing.Size(82, 23)
@@ -1651,7 +1651,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown11.DecimalPlaces = 5
 		Me.NumericUpDown11.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown11.Location = New System.Drawing.Point(319, 533)
-		Me.NumericUpDown11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown11.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown11.Name = "NumericUpDown11"
 		Me.NumericUpDown11.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown11.TabIndex = 26
@@ -1675,7 +1675,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown9.DecimalPlaces = 2
 		Me.NumericUpDown9.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown9.Location = New System.Drawing.Point(544, 32)
-		Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown9.Name = "NumericUpDown9"
 		Me.NumericUpDown9.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown9.TabIndex = 24
@@ -1697,7 +1697,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox2, 3)
 		Me.TextBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TextBox2.Location = New System.Drawing.Point(94, 144)
-		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.TextBox2.Name = "TextBox2"
 		Me.TextBox2.Size = New System.Drawing.Size(127, 23)
 		Me.TextBox2.TabIndex = 28
@@ -1707,7 +1707,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.Button1, 2)
 		Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Button1.Location = New System.Drawing.Point(274, 144)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(82, 20)
 		Me.Button1.TabIndex = 29
@@ -1734,7 +1734,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox2, 2)
 		Me.CheckBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CheckBox2.Location = New System.Drawing.Point(4, 368)
-		Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.CheckBox2.Name = "CheckBox2"
 		Me.CheckBox2.Size = New System.Drawing.Size(82, 17)
 		Me.CheckBox2.TabIndex = 31
@@ -1795,7 +1795,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown14, 2)
 		Me.NumericUpDown14.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown14.Location = New System.Drawing.Point(544, 421)
-		Me.NumericUpDown14.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown14.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown14.Name = "NumericUpDown14"
 		Me.NumericUpDown14.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown14.TabIndex = 38
@@ -1806,7 +1806,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown12.DecimalPlaces = 1
 		Me.NumericUpDown12.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown12.Location = New System.Drawing.Point(94, 421)
-		Me.NumericUpDown12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown12.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown12.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
 		Me.NumericUpDown12.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
 		Me.NumericUpDown12.Name = "NumericUpDown12"
@@ -1818,7 +1818,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.NumericUpDown13, 2)
 		Me.NumericUpDown13.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown13.Location = New System.Drawing.Point(319, 421)
-		Me.NumericUpDown13.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown13.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown13.Name = "NumericUpDown13"
 		Me.NumericUpDown13.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown13.TabIndex = 37
@@ -1869,7 +1869,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox2.FormattingEnabled = True
 		Me.ComboBox2.Location = New System.Drawing.Point(94, 477)
-		Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox2.Name = "ComboBox2"
 		Me.ComboBox2.Size = New System.Drawing.Size(82, 25)
 		Me.ComboBox2.TabIndex = 42
@@ -1881,7 +1881,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox3.FormattingEnabled = True
 		Me.ComboBox3.Location = New System.Drawing.Point(319, 477)
-		Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox3.Name = "ComboBox3"
 		Me.ComboBox3.Size = New System.Drawing.Size(82, 25)
 		Me.ComboBox3.TabIndex = 43
@@ -1893,7 +1893,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.ComboBox4.FormattingEnabled = True
 		Me.ComboBox4.Location = New System.Drawing.Point(544, 477)
-		Me.ComboBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox4.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox4.Name = "ComboBox4"
 		Me.ComboBox4.Size = New System.Drawing.Size(84, 25)
 		Me.ComboBox4.TabIndex = 44
@@ -1905,7 +1905,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown15.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown15.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown15.Location = New System.Drawing.Point(319, 368)
-		Me.NumericUpDown15.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown15.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown15.Name = "NumericUpDown15"
 		Me.NumericUpDown15.Size = New System.Drawing.Size(82, 23)
 		Me.NumericUpDown15.TabIndex = 45
@@ -1927,7 +1927,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.TextBox3, 2)
 		Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TextBox3.Location = New System.Drawing.Point(544, 533)
-		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
 		Me.TextBox3.Name = "TextBox3"
 		Me.TextBox3.Size = New System.Drawing.Size(84, 23)
 		Me.TextBox3.TabIndex = 47
@@ -1938,7 +1938,7 @@ Partial Class Recipe_edit_dlg
 		Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBox3, 5)
 		Me.CheckBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CheckBox3.Location = New System.Drawing.Point(409, 589)
-		Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4)
 		Me.CheckBox3.Name = "CheckBox3"
 		Me.TableLayoutPanel1.SetRowSpan(Me.CheckBox3, 2)
 		Me.CheckBox3.Size = New System.Drawing.Size(219, 54)
@@ -1965,7 +1965,7 @@ Partial Class Recipe_edit_dlg
 		Me.NumericUpDown19.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.NumericUpDown19.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
 		Me.NumericUpDown19.Location = New System.Drawing.Point(544, 368)
-		Me.NumericUpDown19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.NumericUpDown19.Margin = New System.Windows.Forms.Padding(4)
 		Me.NumericUpDown19.Name = "NumericUpDown19"
 		Me.NumericUpDown19.Size = New System.Drawing.Size(84, 23)
 		Me.NumericUpDown19.TabIndex = 50
@@ -1979,7 +1979,7 @@ Partial Class Recipe_edit_dlg
 		Me.ComboBox5.FormattingEnabled = True
 		Me.ComboBox5.Items.AddRange(New Object() {"Line 1", "Line 2", "Line 3", "Line 4", "Line 5", "Line 6", "Line 7", "Line 8", "Serial", "Logo 1", "Logo 2", "Logo 3", "Logo 4", "Data matrix 1", "Data matrix 2"})
 		Me.ComboBox5.Location = New System.Drawing.Point(24, 18)
-		Me.ComboBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.ComboBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.ComboBox5.Name = "ComboBox5"
 		Me.TableLayoutPanel2.SetRowSpan(Me.ComboBox5, 4)
 		Me.ComboBox5.Size = New System.Drawing.Size(192, 33)
@@ -1991,7 +1991,7 @@ Partial Class Recipe_edit_dlg
 		Me.cmd_SaveParams.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.cmd_SaveParams.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cmd_SaveParams.Location = New System.Drawing.Point(544, 18)
-		Me.cmd_SaveParams.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmd_SaveParams.Margin = New System.Windows.Forms.Padding(4)
 		Me.cmd_SaveParams.Name = "cmd_SaveParams"
 		Me.TableLayoutPanel2.SetRowSpan(Me.cmd_SaveParams, 3)
 		Me.cmd_SaveParams.Size = New System.Drawing.Size(112, 34)
@@ -2036,7 +2036,7 @@ Partial Class Recipe_edit_dlg
 		Me.ClientSize = New System.Drawing.Size(1028, 750)
 		Me.Controls.Add(Me.TableLayoutPanel2)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "Recipe_edit_dlg"
